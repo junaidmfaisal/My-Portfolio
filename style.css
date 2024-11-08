@@ -23,131 +23,106 @@ a, .btn{
 
 /*  Desktop Nav */
 
-nav, .nav-links{
-    display:flex;
-}
-
-nav{
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 17vh;
-}
-
-.nav-links{
-    gap: 2rem;
-    list-style: none;
-    font-size: 1.5rem;
-}
-
-a{
-    color: black;
-    text-decoration: none;
-    text-decoration-color:white ;
-}
-
-a:hover{
-    color: gray;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-}
-
-.logo{
-    font-size: 2rem;
-}
-
-.logo:hover{
-    cursor: default;
-}
-
-
-/*  Hamburger Menu  */
-
-#hamburger-nav{
-    display: none;
-}
-
-.hamburger-menu{
-    position: relative;
-    display: inline-block;
-
-}
-
-.hamburger-icon{
+/* Navbar Styling */
+.navbar {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    height: 24px;
-    width: 30px;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Desktop Nav Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff0000;
+}
+
+/* Hamburger Icon for Mobile */
+.hamburger-icon {
+    display: none; /* Hidden on desktop */
     cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .hamburger-icon span {
-    width: 100%;
-    height: 2px;
-    background-color: black;
-    transition: all 0.3 ease-in-out;
-}
-
-.menu-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    width: fit-content;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3 ease-in-out;
-}
-
-.menu-links a {
     display: block;
-    
-    padding: 10px;
-    text-align: center;
-    font-size: 1.5 rem;
-    color: black;
-    text-decoration: none;
-    transition: all 0.3 ease-in-out;
+    width: 25px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
 }
 
-.menu-links li{
+/* Mobile Menu Styling */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(175, 158, 158, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.mobile-menu ul {
     list-style: none;
-    font-size: 25px;
+    text-align: center;
 }
 
-.menu-links.open{
-    max-height: 300px;
-    transition-duration: 1.5s;
+.mobile-menu li {
+    margin: 1rem 0;
 }
 
-.hamburger-icon.open span:first-child{
-    transform: rotate(45deg) translate(10px, 5px);
-    transition-duration: 1s;
+.mobile-menu a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 30px;
+    transition: color 0.3s ease;
 }
 
-.hamburger-icon.open span:nth-child(2){
-    opacity: 0;
-    transition-duration: 1s;
-   
-}
-.hamburger-icon.open span:last-child{
-    transform: rotate(-45deg) translate(10px, -5px);
-    transition-duration: 1s;
+.mobile-menu a:hover {
+    color: #ff0000;
 }
 
-.hamburger-icon span:first-child{
-    transform: none;
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Hide desktop nav links and show hamburger icon */
+    .nav-links {
+        display: none;
+    }
 
-.hamburger-icon span:nth-child(2){
-    opacity: 1;
-}
+    .hamburger-icon {
+        display: flex; /* Show hamburger icon on mobile */
+    }
 
-.hamburger-icon span:last-child{
-    transform: none;
+    /* Show mobile menu when active */
+    .mobile-menu.active {
+        display: flex; /* Display the mobile menu */
+        flex-direction: column;
+    }
 }
-
 
 .section-container{
     display: flex;
@@ -156,13 +131,13 @@ a:hover{
 
 /*  Profile Section */
 
-#profile{
+#profile {
     display: flex;
-    text-align: center;
     justify-content: center;
-    height: 40vh;
+    align-items: center;
+    padding: 4rem 0; /* Use padding instead of fixed height */
     width: 100%;
-    
+    position: relative; /* Ensures it doesn’t overlap */
 }
 
 .section__pic-container{
@@ -270,6 +245,7 @@ a:hover{
 #about {
     padding: 4rem 0;
     background-color: #f9fafb;
+    position: relative;
 }
 
 .about-container {
@@ -430,7 +406,6 @@ a:hover{
         display: block; /* Removes flex */
         width: 100%;
         text-align: center; /* Centers content if needed */
-        padding-bottom: 800px;
     }
 
     .section__pic-container, .section__text {
